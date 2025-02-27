@@ -8,36 +8,156 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
 </head>
 <body>
     <header>
         <div class="menu-size">
             <div class="text-firts">
-                Th<strong>ay</strong>
+                <p>Th<strong>ay</strong></p>
             </div>
+            <button class="menu-toggle">
+                <span class="hamburger">&#9776;</span> 
+                <span class="close">✖</span> 
+            </button>
             <ul class="menu-itens">
                 <li><a href="#sobre">Sobre</a></li>
-                <li><a href="#trabalho">Trabalho</a></li>
+                <li><a href="#trabalhos">Trabalhos</a></li>
                 <li><a href="#feedback">Feedback</a></li>
-                <li><a href="#contato">Contato</a></li>
+                <li><a href="#contact">Contato</a></li>
             </ul>
         </div>
     </header>
-    <main>
-        <div class="about">
+    
+
+        <div class="about" id="sobre">
+         <div class="about-box-center">
             <div class="about-img">
-                <img src="assets/images/img1.jpg" alt="Foto-about">
+                <img class="about-image-firt" src="assets/images/img1.jpg" alt="Foto-about">
             </div>
+
             <div class="about-text">
                 <h3>Sobre mim</h3>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor dolore error neque laboriosam rerum mollitia tempora nisi numquam quia, tenetur blanditiis excepturi sapiente molestiae officiis omnis, odio dignissimos delectus optio.</p>
+               <div class="about-medias">
+               </div>
+            </div>   
+         </div>  
+        </div>
+        
+
+        <div class="working" id="trabalhos">
+            <h3>Trabalhos</h3>
+            <div class="carousel-container">
+                <button id="prevBtn">&#10094;</button>
+                <div class="working-box">
+                    <div class="working-box-item">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio aut voluptate dolor eos ab. Veritatis temporibus, asperiores eveniet distinctio facilis, similique aut aliquid, corporis voluptas quo accusamus reprehenderit? Nihil, deserunt.a</p>
+                        <video src="assets/images/2025-02-26 23-08-10.mkv"  autoplay muted ></video>
+                       
+                    </div>
+                    <div class="working-box-item">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio aut voluptate dolor eos ab. Veritatis temporibus, asperiores eveniet distinctio facilis, similique aut aliquid, corporis voluptas quo accusamus reprehenderit? Nihil, deserunt.a</p>
+                        <video src="assets/images/2025-02-26 23-08-10.mkv" autoplay></video>
+                        
+                    </div>
+                    <div class="working-box-item">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio aut voluptate dolor eos ab. Veritatis temporibus, asperiores eveniet distinctio facilis, similique aut aliquid, corporis voluptas quo accusamus reprehenderit? Nihil, deserunt.a</p>
+                        <video src="assets/images/2025-02-26 23-08-10.mkv" autoplay></video>
+                       
+                    </div>
+                </div>
+             
+                <button id="nextBtn">&#10095;</button>
             </div>
-            <i class='bx bxl-whatsapp'></i>
         </div>
-        <div>
+
+        <div class="feedback-container" id="feedback">
+           <h3>Feedback</h3>
+           <div class="feedback-container-main">
+           <div class="feedback-box-left">
+            <div class="feedback-box">
+                <img src="assets/images/img1.jpg" alt="">
+                <p class="feedback-box-name"><strong>Jobson Junior</strong></p>
+                <p class="stars">★★★★★</p>
+                <p class="text-resumo">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam reiciendis sit architecto dolores minima</p>
+            </div>
             
+            <div class="feedback-box ">
+                <img src="assets/images/img1.jpg" alt="">
+                <p class="feedback-box-name"><strong>Jobson Junior</strong></p>
+                <p class="stars">★★★★★</p>
+                <p class="text-resumo">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam reiciendis sit architecto dolores minima</p>
+            </div>
+           </div>
+    
+            <div class="main-box">
+                 <div class="seta-left">
+                    <span class="seta-1-left">←</span>
+                    <span class="seta-2-left">←</span>    
+                 </div>
+                <img src="assets/images/teste_fedd.jpg" alt="">
+                <div class="seta-right">
+                    <span class="seta-1-right">→</span>
+                    <span class="seta-2-right">→</span>
+                </div>
+            </div>
+    
+            <div class="feedback-box-right">
+                <div class="feedback-box">
+                    <img src="assets/images/img1.jpg" alt="">
+                    <p class="feedback-box-name"><strong>Jobson Junior</strong></p>
+                    <p class="stars">★★★★★</p>
+                    <p class="text-resumo">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam reiciendis sit architecto dolores minima</p>
+                </div>
+        
+                <div class="feedback-box">
+                    <img src="assets/images/img1.jpg" alt="">
+                    <p class="feedback-box-name"><strong>Jobson Junior</strong></p>
+                    <p class="stars">★★★★★</p>
+                    <p class="text-resumo">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam reiciendis sit architecto dolores minima</p>
+                </div>
+            </div>
+           </div>
         </div>
-    </main>
+        
+
+        <div class="contact" id="contact">
+            <h3 class="text-contact">Entre em <strong>Contato</strong></h3>
+            <div class="contact-main">
+                <form action="" >
+                   <div class="inputs">
+                    <div class="inputs-box">
+                        <label for="">Nome</label>
+                        <input type="text" required >
+                    </div>
+                    <div class="inputs-box">
+                        <label for="">Assunto</label>
+                        <input type="text" required >
+                    </div>
+                    <div class="inputs-box">
+                        <label for="">Número de telefone</label>
+                        <input type="text" required >
+                    </div>
+                   </div>
+                    <textarea name="textArea" cols="30" rows="10" placeholder="Sua mensagem"></textarea>
+                    <button>Enviar</button>
+                </form>
+            </div>
+
+        </div>
+
+
+    <footer>
+        <div class="img-footer">
+            <a href="#"><img src="assets/images/instagram.png" alt=""></a>
+            <a href="#"><img src="assets/images/linkedin.png" alt=""></a>
+            <a href="#"><img src="assets/images/whatsapp.png" alt=""></a>
+        </div>
+        <p>Copyright @2025 | <strong>Thay</strong></p>
+    </footer>
+
+
+    <script src="assets/js/script.js"></script>
 </body>
 </html>
