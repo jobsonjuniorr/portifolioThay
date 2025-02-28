@@ -1,16 +1,16 @@
 :root {
-    --background: #0B6623; 
+    --background: #012a22; 
     --card: #2b2928 ;
     --color3: #dae2e586;
     --title: #ffffff;
     --paragraph: #ffffff;
     --fontcolor: #000000;
     --textHeadle: #FFD700;
-    --buttonHover:#0b6623cb ;
-
+    --buttonHover:#012a2296 ;
+    --button: #012a22;
     --color7: #0047AB;
     --color4: #301C15;
-    --color5:#0B6623;
+    --color5:#DAE2E5 ;
     --color6:#DAE2E5 ;
 }
 
@@ -36,142 +36,140 @@
     font-family:"Roboto" ,sans-serif;
 }
 html{
-    scroll-padding-top:80px ;
+    scroll-padding-top:70px ;
     scroll-behavior: smooth;
 }
 body{
     background-color: var(--background);
 }
 
+::-webkit-scrollbar {
+    width:10px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: var(--card); 
+    border-radius: 5px;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: var(--button); 
+    border-radius: 5px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--buttonHover); 
+  }
 
-header{
-    width: 100vw;
-    display: flex;
-    align-items: center;    
-    justify-content: center;
-    background-color: var(--card);
+  .header{
     position: fixed;
-    border-bottom: 1px solid var(--textHeadle);
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 1.5rem 9%;
+    background: rgba(0,0,0,0.7);
+    filter: drop-shadow(10px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+}
+
+.logo{
+    font-size: 1.2rem;
+    color: var(--textHeadle);
+    font-weight: 800;
+    cursor: pointer;
+    transition: 0.5 ease;
+}
+.logo:hover{
+    transform: scale(1.1);
+}
+.navbar a{
+    font-size: 1.1rem;
+    color: var(--textHeadle);
+    margin-left: 4rem;
+    font-weight: 500;
+    transition: 0.3 ease;
+    border-bottom:3px solid transparent;
+    text-decoration:none;
+}
+.navbar a:hover,
+.navbar a.active{
+    color: var(--color6);
+    border-bottom: 3px solid var(--paragraph);
+}
+
+#menu-icon{
+    font-size: 2rem;
+    color: var(--color6);
+    display: none;
+}
+.navbar-content{
+    display: block;
+}
+
+@media (max-width: 998px) {
+.navbar {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 250px;
+    height: 100%; 
+    background-color: var(--card); 
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    transition: 0.5s; 
     z-index: 99;
 }
-
-.menu-size button{
-    display: none;
-}
-.menu-size{
-    width: 95vw;
+.navbar-content{
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    min-height: 80px;
+    flex-direction: column;
+    margin-top:2.1rem;
 }
 
-.menu-itens{
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    width: 40%;
-}
-.text-firts p{
+.navbar a {
+    font-size: 1.2rem;
     color: var(--textHeadle);
-}
-.menu-itens li{
-    list-style: none;
-}
-.menu-itens li a{
     text-decoration: none;
+    transition: 0.5s ease;
+    padding: 1rem 0;
+    margin-left: 0;
+}
+
+.navbar a:hover,
+.navbar a.active {
+    color: var(--color6);
+    border-left: 4px solid var(--color6);
+    padding-left: 1rem;
+}
+
+.navbar.active {
+    right: 0; 
+}
+
+#menu-icon {
+    font-size: 2.5rem;
     color: var(--textHeadle);
-    transition: 0.5 ease-in-out;
-}
-.menu-itens li a:hover{
-    text-decoration: underline;
-    color: white;
-}
-.menu-toggle .close{
-    display: none;
-}
-
-
-@media (max-width: 768px) {
-    .menu-size button{
-        display: block;
-    }
-header {
-    width: 250px;
-    height: 100vh;
-    background-color: var(--card);
-    position: fixed;
-    left: -250px;
-    top: 0;
-    transition: left 0.5s ease-out;
-    z-index: 100;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-}
-
-
-header.active {
-    left: 0;
-}
-
-.menu-size{
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    height: 100%;
-    justify-content: start;
-    margin-top: 75px;
-    gap: 25px;
-    align-items: start;
-}
-.text-firts{
-    margin-left: 10px;
-}
-.menu-itens{
-    display: flex;
-    align-items: start;
-    justify-content: start;
-    flex-direction: column;
-    width: 100%;
-    height: 100%;
-    gap: 25px;
-    margin-left: 10px;
-}
-
-.menu-toggle {
-    position: fixed;
-    left:0px;
-    top: 0px;
-    background: var(--card); 
-    border: none;
-    font-size: 28px;
     cursor: pointer;
-    color: white;
-    z-index: 101;
-    transition: left 0.8s ease;
-    padding: 10px 15px;
-    border-radius: 0px 0px 10px 0px;
+    display: block;
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    z-index: 100;
 }
 
-
-
-header.active .menu-toggle {
-    left: 20px; 
+#menu-icon {
+    display: block;
 }
-
-header.active .menu-toggle .hamburger {
-    display: none;
-}
-
-header.active .menu-toggle .close {
-    display: inline;
-}
-
-html{
-    scroll-padding-top:0px ;
+.navbar {
+    display: flex;
 }
 }
+
 
 .about{
     height:100vh; 
@@ -637,11 +635,13 @@ form textarea{
 .contact-main button{
     padding: 10px;
     color: var(--paragraph);
-    background-color: var(--color5);
+    background-color: var(--button);
     border: none;
     border-radius: 10px;
     width: 100px;
+    cursor: pointer;
 }
+
 .contact-main button:hover{
     background-color: var(--buttonHover);
 }

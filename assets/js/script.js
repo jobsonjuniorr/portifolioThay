@@ -8,10 +8,13 @@ let scrollAmount = 820;
 function updateScrollAmount(){
     if(window.innerWidth <= 768){
         scrollAmount = 420
+    }else{
+        scrollAmount = 820
     }
+    workingBox.scrollTo({ left: 0, behavior: "smooth" });
 }
 updateScrollAmount()
-
+window.addEventListener("resize", updateScrollAmount);
 
 nextBtn.addEventListener("click", () => {
     workingBox.scrollBy({ left: scrollAmount, behavior: "smooth" });
@@ -20,7 +23,7 @@ nextBtn.addEventListener("click", () => {
 prevBtn.addEventListener("click", () => {
     workingBox.scrollBy({ left: -scrollAmount, behavior: "smooth" });
 });
-window.addEventListener("resize", updateScrollAmount);
+
 
 
 const videos = document.querySelectorAll("video");
@@ -62,25 +65,30 @@ document.addEventListener("click", () => {
     });
 }, { once: true });
 
-document.addEventListener("DOMContentLoaded", function() {
-    const menuToggle = document.querySelector(".menu-toggle");
-    const header = document.querySelector("header");
-    const hamburger = document.querySelector(".hamburger");
-    const closeIcon = document.querySelector(".close");
 
-    menuToggle.addEventListener("click", function() {
-        if (!header.classList.contains("active")) {
-            header.classList.add("active"); // Abre o menu
-            setTimeout(() => {
-                hamburger.style.display = "none";
-                closeIcon.style.display = "inline";
-            }, 500); // Espera 500ms (mesmo tempo do CSS)
-        } else {
-            header.classList.remove("active"); // Fecha o menu
-            setTimeout(() => {
-                closeIcon.style.display = "none";
-                hamburger.style.display = "inline";
-            }, 500); // Espera 500ms antes de mudar de volta
+let menuIcon = document.querySelector('#menu-icon');
+let navbar = document.querySelector('.navbar');
+
+let sections = document.querySelectorAll('section');
+let navLinks = document.querySelectorAll('header nav ul li a');
+
+window.onscroll = () => {
+    sections.forEach(sec => {
+        let top = window.scrollY;
+        let offset = sec.offsetTop - 150;
+        let height = sec.offsetHeight;
+        let id = sec.getAttribute('id');
+
+        if (top >= offset && top < offset + height) {
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                document.querySelector('header nav ul li a[href*=' + id + ']').classList.add('active');
+            });
         }
     });
-});
+}
+
+menuIcon.onclick = () => {
+    menuIcon.classList.toggle('bx-x');
+    navbar.classList.toggle('active');
+}
