@@ -1,74 +1,34 @@
-const workingBox = document.querySelector(".working-box");
-const prevBtn = document.getElementById("prevBtn");
-const nextBtn = document.getElementById("nextBtn");
 
-let scrollAmount = 820;
+document.addEventListener("DOMContentLoaded", function () {
+    let index = 0;
+    const slides = document.querySelectorAll(".slides video");
+    const descriptionElement = document.getElementById("video-description");
+
+    const descriptions = [
+        "Projeto 1: Desenvolvimento de um sistema web para gestão de pedidos.",
+        "Projeto 2: Simulação de uma linha de produção no CoppeliaSim.",
+        "Projeto 3: Aplicação JavaFX para gerenciamento de equipamentos escolares."
+    ];
+
+    function mudarSlide(direcao) {
+        slides[index].pause(); 
+        slides[index].classList.remove("active");
+
+        index = (index + direcao + slides.length) % slides.length;
+
+        slides[index].classList.add("active");
+        slides[index].play(); 
 
 
-function updateScrollAmount(){
-    if(window.innerWidth <= 768){
-        scrollAmount = 420;
+        descriptionElement.textContent = descriptions[index];
     }
-    else if(window.innerWidth >= 1024){
-        scrollAmount = 820;
-    }
-    else {
-        scrollAmount = 820; 
-    }
-    workingBox.scrollTo({ left: 0, behavior: "smooth" });
-}
-updateScrollAmount()
-window.addEventListener("resize", updateScrollAmount);
-
-nextBtn.addEventListener("click", () => {
-    workingBox.scrollBy({ left: scrollAmount, behavior: "smooth" });
+    slides.forEach(video => video.classList.remove("active"));
+    slides[index].classList.add("active");
+    slides[index].play();
+    descriptionElement.textContent = descriptions[index]; 
+    document.querySelector(".prev").addEventListener("click", () => mudarSlide(-1));
+    document.querySelector(".next").addEventListener("click", () => mudarSlide(1));
 });
-
-prevBtn.addEventListener("click", () => {
-    workingBox.scrollBy({ left: -scrollAmount, behavior: "smooth" });
-});
-
-
-
-const videos = document.querySelectorAll("video");
-
-videos.forEach(video => {
-    video.muted = true;
-});
-
-function checkAndPlayVideos() {
-    videos.forEach((video) => {
-        const rect = video.getBoundingClientRect();
-        const isVisible = rect.top >= 0 && rect.bottom <= window.innerHeight;
-
-        if (isVisible && video.paused) {
-            video.play().catch(error => console.log("Erro ao tentar reproduzir:", error));
-        } else if (!isVisible) {
-            video.pause();
-        }
-    });
-}
-
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-            entry.target.play().catch(error => console.log("Erro ao tentar reproduzir:", error));
-        } else {
-            entry.target.pause();
-        }
-    });
-}, { threshold: 0.5 });
-
-videos.forEach((video) => observer.observe(video));
-
-document.addEventListener("click", () => {
-    videos.forEach(video => {
-        if (video.paused) {
-            video.play().catch(error => console.log("Erro ao tentar reproduzir:", error));
-        }
-    });
-}, { once: true });
-
 
 let menuIcon = document.querySelector('#menu-icon');
 let navbar = document.querySelector('.navbar');
@@ -98,22 +58,6 @@ menuIcon.onclick = () => {
 }
 
 
-function checkScroll() {
-    const boxes = document.querySelectorAll(".working-box");
-    const triggerBottom = window.innerHeight * 0.8;
-
-    boxes.forEach(box => {
-        const boxTop = box.getBoundingClientRect().top;
-
-        if (boxTop < triggerBottom) {
-            box.style.opacity = 1;
-            box.style.transform = "translateY(0)";
-        }
-    });
-}
-
-window.addEventListener("scroll", checkScroll);
-checkScroll(); 
 
 
 document.addEventListener("DOMContentLoaded",function(){
@@ -142,3 +86,4 @@ document.addEventListener("DOMContentLoaded",function(){
     }
     window.addEventListener("scroll",animarContatc)
 })
+
