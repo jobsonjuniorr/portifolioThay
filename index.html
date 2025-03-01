@@ -13,7 +13,7 @@
 </head>
 <body>
     <header class="header">
-        <a href="#home" class="logo">Thay</a>
+        <a href="#sobre" class="logo">Thay</a>
 
         <span id="menu-icon" class="material-symbols-outlined ">
             menu
@@ -46,7 +46,7 @@
         </div>
         
 
-        <div class="working" id="trabalhos">
+        <div class="working" id="trabalhos" tabindex="0">
             <h3>Trabalhos</h3>
             <div class="carousel-container">
                 <button id="prevBtn">&#10094;</button>
@@ -91,6 +91,7 @@
             </div>
            </div>
     
+           <!--
             <div class="main-box">
                  <div class="seta-left">
                     <span class="seta-1-left">←</span>
@@ -102,6 +103,7 @@
                     <span class="seta-2-right">→</span>
                 </div>
             </div>
+           -->
     
             <div class="feedback-box-right">
                 <div class="feedback-box">
@@ -125,23 +127,24 @@
         <div class="contact" id="contact">
             <h3 class="text-contact">Entre em <strong>Contato</strong></h3>
             <div class="contact-main">
-                <form action="" >
+                <form action="https://formsubmit.co/jobson13j@gmail.com" method="post" >
                    <div class="inputs">
                     <div class="inputs-box">
-                        <label for="">Nome</label>
-                        <input type="text" required >
+                        <label for="nome">Nome</label>
+                        <input type="text" name="nome" required >
                     </div>
                     <div class="inputs-box">
-                        <label for="">Assunto</label>
-                        <input type="text" required >
+                        <label for="assunto">Assunto</label>
+                        <input type="text" name="assunto" required >
                     </div>
                     <div class="inputs-box">
-                        <label for="">Número de telefone</label>
-                        <input type="text" required >
+                        <label for="telefone">Número de telefone</label>
+                        <input type="text" name="telefone" required >
                     </div>
                    </div>
                     <textarea name="textArea" cols="30" rows="10" placeholder="Sua mensagem"></textarea>
-                    <button>Enviar</button>
+                    
+                    <button type="submit">Enviar</button>
                 </form>
             </div>
 

@@ -7,9 +7,13 @@ let scrollAmount = 820;
 
 function updateScrollAmount(){
     if(window.innerWidth <= 768){
-        scrollAmount = 420
-    }else{
-        scrollAmount = 820
+        scrollAmount = 420;
+    }
+    else if(window.innerWidth >= 1024){
+        scrollAmount = 820;
+    }
+    else {
+        scrollAmount = 820; 
     }
     workingBox.scrollTo({ left: 0, behavior: "smooth" });
 }
@@ -92,3 +96,49 @@ menuIcon.onclick = () => {
     menuIcon.classList.toggle('bx-x');
     navbar.classList.toggle('active');
 }
+
+
+function checkScroll() {
+    const boxes = document.querySelectorAll(".working-box");
+    const triggerBottom = window.innerHeight * 0.8;
+
+    boxes.forEach(box => {
+        const boxTop = box.getBoundingClientRect().top;
+
+        if (boxTop < triggerBottom) {
+            box.style.opacity = 1;
+            box.style.transform = "translateY(0)";
+        }
+    });
+}
+
+window.addEventListener("scroll", checkScroll);
+checkScroll(); 
+
+
+document.addEventListener("DOMContentLoaded",function(){
+    function animarFeedback(){
+        let elemento = document.getElementById("feedback")
+        let posicao = elemento.getBoundingClientRect().top
+        let alturaTela = window.innerHeight
+
+        if(posicao < alturaTela * 0.75){
+            elemento.classList.add("show")
+        }
+    }
+    window.addEventListener("scroll",animarFeedback)
+})
+
+
+document.addEventListener("DOMContentLoaded",function(){
+    function animarContatc(){
+        let elemento = document.getElementById("contact")
+        let posicao = elemento.getBoundingClientRect().top
+        let alturaTela = window.innerHeight
+
+        if(posicao < alturaTela * 0.75){
+            elemento.classList.add("show")
+        }
+    }
+    window.addEventListener("scroll",animarContatc)
+})
